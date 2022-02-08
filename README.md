@@ -82,3 +82,15 @@
 - The ```type``` property is typically defined as string constants.
 
 - An action is an ```object``` with a ```type``` property.
+
+### Reducers:
+
+- Reducers specify how the app's state changes in response to actions sent to the store.
+
+- It describes how the application state changes.
+
+- It is a function that accepts state and action as arguments, and returns the next state of the application.
+
+- ```javaScript
+        (previousState, action) => newState
+  ```
