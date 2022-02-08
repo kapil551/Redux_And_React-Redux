@@ -40,4 +40,31 @@
 
     - https://redux.js.org/introduction/getting-started
 
+### Redux - ```Three Core Concepts```:
 
+1. ```Store``` - Holds the state of our application.
+
+2. ```Action``` - Dercribes what happened
+
+3. ```Reducer``` - Ties the store and actions together.
+
+- A ```Store``` that holds the state of your application.
+
+- An ```Action``` that describes the changes in the state of the application.
+
+- A ```reducer``` which actually carries out the state transition depending on the action.
+
+### Redux - ```Three fundamental principles```:
+
+1. **The state of your whole application is stored in an object tree within a single store.** 
+    - Maintain our application state in a single object which would be managed by the Redux store.
+
+2. **The only way to change the state is to emit an action, an object describing what happened.**
+    - To update the state of our app, you need to let Redux know about that with an action.
+    - We are not allowed to directly update the state object.
+
+3. **To specify how the state tree is transformed by actions, you write pure reducers.**
+    - ```javaScript
+        Reducer - (previousState, action) => newState
+      ```
+![](ReduxThreePrinciples.PNG)
