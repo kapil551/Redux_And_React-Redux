@@ -146,3 +146,71 @@
 - e.g. -> redux-logger
 
 - https://www.npmjs.com/package/redux-logger
+
+### Async Actions:
+
+- Synchronous v/s Asynchronous Actions:
+
+    - Synchronous Actions:
+
+        - As soon as an action was dispatched, the state was immediately updated.
+
+        - E.x. - If you dispatch the BUY_CAKE action, the numOfCakes was right away decremented by 1.
+    
+    - Asynchronous Actions:
+
+        - E.x. - Asynchronous API calls to fetch data from an end point and use that data in our application.
+
+    - What are we building?
+
+        - Fetch a list of users from an API end point and stores it in the redux store.
+
+        - State?
+
+            - ```javaScript
+                state = {
+                    loading: false,
+                    data:[],
+                    error:''
+
+                }
+            ```
+
+            - **loading** - Display a loading spinner in your component
+            - **data** - List of users
+            - **error** - Display error to the user
+
+        - Actions?
+
+            - **FETCH_USERS_REQUEST** - Fetch list of users
+            - **FETCH_USERS_SUCCESS** - Fetched successfully
+            - **FETCH_USERS_FAILURE** - Error fetching the data
+        
+        - Reducers?
+
+            - ```javaScript
+                case: FETCH_USERS_REQUEST
+                    loading: true
+              ```
+            - ```javaScript
+                case: FETCH_USERS_SUCCESS
+                    loading: false
+                    user: data (from API)
+              ```
+            - ```javaScript
+                case: FETCH_USERS_FAILURE
+                    loading: true
+                    error: error (from API)
+              ```
+        
+        - Async action creaters:
+        
+            - ```axios```:
+
+                - Requests to an API endpoint
+
+            - ```redux-thunk```:
+
+                - This is a package from the redux ecosystem and is the standard way to ```define asynchronous action creaters``` in our application.
+
+                - It is basically a middleware, that we apply to the redux store.
