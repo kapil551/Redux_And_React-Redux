@@ -94,3 +94,19 @@
 - ```javaScript
         (previousState, action) => newState
   ```
+
+### Store:
+
+- One store for the entire application.
+
+- Responsibilities:
+
+    - Holds application state.
+
+    - Allows access to state via ```getState()```
+
+    - Allows state to be updated via ```dispatch(action)```
+
+    - Registers listeners via ```subscribe(listener)```
+
+    - Handlers unregistering of listeners via the function returned by subscribe(listener).

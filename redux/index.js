@@ -1,3 +1,8 @@
+const redux = require('redux');
+
+// initialize the redux store
+const createStore = redux.createStore;
+
 // type of the action
 const BUY_CAKE = 'BUY_CAKE';
 
@@ -34,3 +39,21 @@ const reducer = (state = initialState, action) => {
         default: return state
     }
 }
+
+// create a redux store -> Holding the application state
+const store = createStore(reducer);
+
+// Allows access to state via ```getState()```
+console.log('Initial State', store.getState());
+
+// Registers listeners via ```subscribe(listener)```
+const unsubscirbe = store.subscribe(() => console.log('Updated state', store.getState()));
+
+// Allows state to be updated via ```dispatch(action)```
+// disptach accepts the action creater function
+store.dispatch(buyCake());
+store.dispatch(buyCake());
+store.dispatch(buyCake());
+
+// Handlers unregistering of listeners via the function returned by subscribe(listener)
+unsubscirbe();
