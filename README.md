@@ -110,3 +110,19 @@
     - Registers listeners via ```subscribe(listener)```
 
     - Handlers unregistering of listeners via the function returned by subscribe(listener).
+
+### Multiple Reducers:
+
+- Need?
+
+    - Let's say our shop needs to sell both cakes and ice creams.
+
+    - We decided that we would have two shopkeepers one each for managing cakes and ice creams.
+
+    - Here the two shopkeepers are nothing but the ```reducer```.
+    
+    - So this translates to having two reducers in our application.
+
+- Why?
+
+    - Can we use one reducer, Yes we can but in the long run it becomes very complex to manage the single reducer.
