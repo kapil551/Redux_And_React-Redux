@@ -126,3 +126,9 @@
 - Why?
 
     - Can we use one reducer, Yes we can but in the long run it becomes very complex to manage the single reducer.
+
+- Advantage?
+
+    - Now each reducer is managing it's own part of the global state.
+
+    - This helps in keeping the reducers complelely independent and managing different areas of the global state easily.

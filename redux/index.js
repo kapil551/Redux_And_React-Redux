@@ -2,6 +2,8 @@ const redux = require('redux');
 
 // initialize the redux store
 const createStore = redux.createStore;
+// for combining reducers
+const combineReducers = redux.combineReducers;
 
 // type of the action
 const BUY_CAKE = 'BUY_CAKE';
@@ -29,14 +31,18 @@ function buyIceCream() {
 // reducers
 // (previousState, action) => newState
 
-// initial state -> state will always be an object
-const initialState = {
+// initial cake state -> state will always be an object
+const initialCakeState = {
     numberOfCakes: 10,
-    numderOfIceCream: 20
 }
 
-// reducer function
-const reducer = (state = initialState, action) => {
+// initial ice cream state
+const initialIceCreamState = {
+    numderOfIceCream: 20,
+}
+
+// first reducer function --> only bothered about the cake state
+const cakeReducer = (state = initialCakeState, action) => {
 
     switch(action.type) {
 
@@ -46,6 +52,16 @@ const reducer = (state = initialState, action) => {
             numberOfCakes: state.numberOfCakes - 1, // then only update the numberOfCakes
         }
 
+        default: return state
+    }
+}
+
+// second reducer function --> only bothered about the ice cream state
+const iceCreamReducer = (state = initialIceCreamState, action) => {
+
+    switch(action.type) {
+
+        // return the next state of the application as a new object
         case BUY_ICECREAM: return {
             ...state, // make a copy of the object
             numderOfIceCream: state.numderOfIceCream - 1, // then only update the numberOfCakes
@@ -55,8 +71,14 @@ const reducer = (state = initialState, action) => {
     }
 }
 
+// combine all the reducers as the root reducer
+const rootReducer = combineReducers({
+    cake: cakeReducer,
+    iceCream: iceCreamReducer
+})
+
 // create a redux store -> Holding the application state
-const store = createStore(reducer);
+const store = createStore(rootReducer);
 
 // Allows access to state via ```getState()```
 console.log('Initial State', store.getState());
