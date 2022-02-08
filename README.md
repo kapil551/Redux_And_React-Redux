@@ -132,3 +132,17 @@
     - Now each reducer is managing it's own part of the global state.
 
     - This helps in keeping the reducers complelely independent and managing different areas of the global state easily.
+
+### Middleware:
+
+- It is the suggested way to extend Redux with custom functionality.
+
+- If you wantt redux with extra features middleware is the way to go.
+
+- It provided a third-prty extension point between dispatching an action, and the moment it reaches the reducer.
+
+- Use middleware for logging, crash reporting, performing asynchronous tasks etc.
+
+- e.g. -> redux-logger
+
+- https://www.npmjs.com/package/redux-logger
